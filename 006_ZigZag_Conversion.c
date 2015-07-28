@@ -1,13 +1,13 @@
 char* convert(char* s, int numRows) 
 {
-  int num = strlen(s);
+    int num = strlen(s);
 	if (num == 0 || numRows == 1)
         return s;
 
-  char* sFinal;
+    char* sFinal;
 	sFinal = (char*)malloc(num + 1);
 
-  int index;
+    int index;
 	int i = 0;
 	int n = 0;
 
