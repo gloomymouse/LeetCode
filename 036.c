@@ -2,7 +2,6 @@ bool isValidSudoku(char** board, int boardRowSize, int boardColSize)
 {
 	int nums[9] = {0,0,0,0,0,0,0,0,0};
 	int i, j;
-	int n, m;
 	for (i=0; i<9; ++i)
 	{
 		for (j=0; j<9; ++j)
@@ -47,32 +46,26 @@ bool isValidSudoku(char** board, int boardRowSize, int boardColSize)
 			nums[j] = 0;
 		}
 	}
-	for (i=0; i<3; ++i)
+	for (i=0; i<9; ++i)
 	{
-		for (j=0; j<3; ++j)
+		for (j=0; j<9; ++j)
 		{
-			for (m=0; m<3; ++m)
+			if (board[i/3*3+j/3][i%3*3+j%3] == '.')		// !!! [i/3*3+j/3][i%3*3+j%3]
 			{
-				for (n=0; n<3; ++n)
-				{
-					if (board[i*3+m][j*3+n] == '.')
-					{
-						continue;
-					}
-					if (nums[board[i*3+m][j*3+n] - '1'] == 0)
-					{
-						nums[board[i*3+m][j*3+n] - '1'] = 1;
-					}
-					else if (nums[board[i*3+m][j*3+n] - '1'] == 1)
-					{
-						return false;
-					}
-				}
+				continue;
 			}
-			for (n=0; n<9; ++n)
+			if (nums[board[i/3*3+j/3][i%3*3+j%3] - '1'] == 0)
 			{
-				nums[n] = 0;
+				nums[board[i/3*3+j/3][i%3*3+j%3] - '1'] = 1;
 			}
+			else if (nums[board[i/3*3+j/3][i%3*3+j%3] - '1'] == 1)
+			{
+				return false;
+			}
+		}
+		for (j=0; j<9; ++j)
+		{
+			nums[j] = 0;
 		}
 	}
 	return true;
