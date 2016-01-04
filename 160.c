@@ -29,7 +29,7 @@ struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *he
         }
         else
         {
-            cur = cur->next;
+            cur  = cur->next;
             fast = fast->next->next;
             if (cur == fast)
                 break;
@@ -46,7 +46,7 @@ struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *he
         }
         else
         {
-            cur = cur->next;
+            cur  = cur->next;
             fast = fast->next;
         }
     }
