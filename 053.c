@@ -1,3 +1,4 @@
+/* piSum[i]为[nums[0],nums[i]]的最大子段和 */
 int maxSubArray(int* nums, int numsSize) 
 {    
     int iMaxSum = 0;
